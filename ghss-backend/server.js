@@ -303,6 +303,7 @@ app.delete('/api/facilities/:id', authenticateToken, async (req, res) => {
 // We use the authenticateToken middleware. If the token is fake/expired, 
 // the middleware will block it and send a 403 before it even reaches the res.status(200) line.
 app.get('/api/auth/verify', authenticateToken, (req, res) => {
+    console.log("✅ Token verified for user:", req.user.username); // <-- LOG THE USERNAME
     res.status(200).json({ valid: true, message: "Token is cryptographically secure." });
 });
 // ==========================================

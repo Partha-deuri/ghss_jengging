@@ -211,11 +211,24 @@ export const api = {
     });
   },
 
-  // Inside your api object in api.js
+// Inside your api object in api.js
   verifyToken: async () => {
-    return fetchWithErrorCheck(`${BASE_URL}/auth/verify`, {
-        method: 'GET'
+    const token = localStorage.getItem('adminToken');
+    
+    const response = await fetch(`${BASE_URL}/auth/verify`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
     });
+
+    // If the backend sends 401 (Unauthorized) or 403 (Forbidden), we force an error
+    if (!response.ok) {
+      throw new Error("Invalid token signature"); 
+    }
+    
+    return response.json();
   },
 
 

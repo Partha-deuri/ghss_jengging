@@ -211,6 +211,13 @@ export const api = {
     });
   },
 
+  // Inside your api object in api.js
+  verifyToken: async () => {
+    return fetchWithErrorCheck(`${BASE_URL}/auth/verify`, {
+        method: 'GET'
+    });
+  },
+
 
 
 };

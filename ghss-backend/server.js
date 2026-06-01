@@ -297,11 +297,18 @@ app.delete('/api/facilities/:id', authenticateToken, async (req, res) => {
     } catch (err) { res.status(500).json({ error: "Failed to delete facility" }); }
 });
  
-
+// ==========================================
+// TOKEN VERIFICATION ROUTE
+// ==========================================
+// We use the authenticateToken middleware. If the token is fake/expired, 
+// the middleware will block it and send a 403 before it even reaches the res.status(200) line.
+app.get('/api/auth/verify', authenticateToken, (req, res) => {
+    res.status(200).json({ valid: true, message: "Token is cryptographically secure." });
+});
 // ==========================================
 // START SERVER
 // ==========================================
-app.get('/', (req, res) => res.send('GHSS API (MongoDB) is running!'));
+app.get('/', (req, res) => res.send('GHSS Backend is running!'));
 app.get('/api', (req, res) => res.send('GHSS API (MongoDB) is running!'));
 
 app.get('/api/ping', (req, res) => {

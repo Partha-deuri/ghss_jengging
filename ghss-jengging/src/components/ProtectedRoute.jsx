@@ -1,10 +1,41 @@
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import { api } from '../services/api';
 
 export default function ProtectedRoute() {
-  // Check if our secure JWT token exists in the browser's local storage
-  const token = localStorage.getItem('adminToken');
+  const [isAuthorized, setIsAuthorized] = useState(null); 
 
-  // If they have a token, render the child routes (<Outlet />).
-  // If not, instantly redirect them back to the login page.
-  return token ? <Outlet /> : <Navigate to="/admin-login" replace />;
+  useEffect(() => {
+    const verifyAccess = async () => {
+      const token = localStorage.getItem('adminToken');
+
+      // 1. FAST LOCAL CHECK: Do they even have a token?
+      if (!token) {
+        return setIsAuthorized(false);
+      }
+
+      // 2. DEEP SERVER CHECK: Is the token valid and not expired?
+      try {
+        await api.verifyToken();
+      } catch (error) {
+        localStorage.removeItem('adminToken');
+        setIsAuthorized(false);
+      }
+    };
+
+    verifyAccess();
+  }, []);
+
+  if (isAuthorized === null) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-gray-50">
+        <div className="text-primary font-semibold animate-pulse text-lg">
+          Verifying Secure Session...
+        </div>
+      </div>
+    );
+  }
+
+  return isAuthorized ? <Outlet /> : <Navigate to="/admin-login" replace />;
 }

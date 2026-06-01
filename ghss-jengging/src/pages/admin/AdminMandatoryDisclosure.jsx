@@ -7,11 +7,10 @@ export default function AdminMandatoryDisclosure() {
   const [isSaving, setIsSaving] = useState(false);
 
   // Initial States
-  const [generalData, setGeneralData] = useState({
-    schoolName: "", affiliationNo: "", schoolCode: "", address: "", principalName: "", email: "", phone: ""
+ const [generalData, setGeneralData] = useState({
+    schoolName: "", affiliationNo: "", schoolCode: "", udise: "", address: "", principalName: "", email: "", phone: ""
   });
   
-  // Note: We now store an object for each file { url: '', name: '' }
   const [docsData, setDocsData] = useState({
     affiliationLetter: { url: '', name: '' }, 
     societyRegistration: { url: '', name: '' }, 
@@ -49,7 +48,6 @@ export default function AdminMandatoryDisclosure() {
       try {
         const data = await api.getDisclosure();
         if (data.generalData) setGeneralData(data.generalData);
-        // We merge with default state to ensure the objects {url, name} exist even if DB is empty
         if (data.docsData) setDocsData(prev => ({...prev, ...data.docsData}));
         if (data.academicDocs) setAcademicDocs(prev => ({...prev, ...data.academicDocs}));
         if (data.classXResults) setClassXResults(data.classXResults);
@@ -300,8 +298,9 @@ export default function AdminMandatoryDisclosure() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
             <h2 className="col-span-full text-lg font-bold text-primary mb-4 border-b pb-2">A. General Information</h2>
             {renderInput("Name of the School", "schoolName", generalData.schoolName, setGeneralData, generalData)}
-            {renderInput("Affiliation No. (If Applicable)", "affiliationNo", generalData.affiliationNo, setGeneralData, generalData)}
-            {renderInput("School Code (If Applicable)", "schoolCode", generalData.schoolCode, setGeneralData, generalData)}
+            {renderInput("Affiliation No.", "affiliationNo", generalData.affiliationNo, setGeneralData, generalData)}
+            {renderInput("School Code", "schoolCode", generalData.schoolCode, setGeneralData, generalData)}
+            {renderInput("UDISE Code", "udise", generalData.udise, setGeneralData, generalData)}
             {renderInput("Complete Address with Pin Code", "address", generalData.address, setGeneralData, generalData)}
             {renderInput("Principal Name & Qualification", "principalName", generalData.principalName, setGeneralData, generalData)}
             {renderInput("School Email ID", "email", generalData.email, setGeneralData, generalData)}

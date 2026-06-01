@@ -7,7 +7,6 @@ export default function MandatoryDisclosure() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top on load
 
     const fetchDisclosureData = async () => {
       try {
@@ -77,7 +76,7 @@ export default function MandatoryDisclosure() {
     <div className="flex flex-col font-sans animate-fade-in-up">
       
       {/* PAGE HEADER */}
-      <header className="h-[40vh] bg-gradient-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-[50px] mt-[-30px] shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
+      <header className="h-[40vh] bg-linear-to-br from-primary to-[#004080] flex items-center justify-center text-white text-center pt-12.5 -mt-7.5 shadow-[inset_0_-5px_15px_rgba(0,0,0,0.2)]">
         <div>
           <h1 className="text-5xl text-accent mb-3 font-serif font-bold">Mandatory Public Disclosure</h1>
           <p className="text-lg opacity-90">Compliance with CBSE Appendix-IX Revised Format</p>
@@ -85,11 +84,11 @@ export default function MandatoryDisclosure() {
       </header>
 
       {/* MAIN CONTENT */}
-      <main className="container mx-auto max-w-7xl px-5 py-[60px]">
+      <main className="container mx-auto max-w-7xl px-5 py-15">
         
         {/* CATEGORY A */}
-        <div className="mb-[50px]">
-          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-[10px] mb-[20px] font-serif font-bold">A: GENERAL INFORMATION</h2>
+        <div className="mb-12.5">
+          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-2.5 mb-5 font-serif font-bold">A: GENERAL INFORMATION</h2>
           <div className="overflow-x-auto">
             <table className={tableClass}>
               <thead>
@@ -101,20 +100,21 @@ export default function MandatoryDisclosure() {
               </thead>
               <tbody>
                 <tr><th className={tdClass}>1</th><td className={tdClass}>NAME OF THE SCHOOL</td><td className={tdClass}>{generalData.schoolName || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>2</th><td className={tdClass}>AFFILIATION NO. (IF APPLICABLE)</td><td className={tdClass}>{generalData.affiliationNo || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>3</th><td className={tdClass}>SCHOOL CODE (IF APPLICABLE)</td><td className={tdClass}>{generalData.schoolCode || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>4</th><td className={tdClass}>COMPLETE ADDRESS WITH PIN CODE</td><td className={tdClass}>{generalData.address || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>5</th><td className={tdClass}>PRINCIPAL NAME & QUALIFICATION:</td><td className={tdClass}>{generalData.principalName || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>6</th><td className={tdClass}>SCHOOL EMAIL ID</td><td className={tdClass}>{generalData.email || 'N/A'}</td></tr>
-                <tr><th className={tdClass}>7</th><td className={tdClass}>CONTACT DETAILS (LANDLINE/MOBILE)</td><td className={tdClass}>{generalData.phone || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>2</th><td className={tdClass}>AFFILIATION NO.</td><td className={tdClass}>{generalData.affiliationNo || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>3</th><td className={tdClass}>SCHOOL CODE</td><td className={tdClass}>{generalData.schoolCode || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>4</th><td className={tdClass}>UDISE CODE</td><td className={tdClass}>{generalData.udise || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>5</th><td className={tdClass}>COMPLETE ADDRESS WITH PIN CODE</td><td className={tdClass}>{generalData.address || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>6</th><td className={tdClass}>PRINCIPAL NAME & QUALIFICATION:</td><td className={tdClass}>{generalData.principalName || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>7</th><td className={tdClass}>SCHOOL EMAIL ID</td><td className={tdClass}>{generalData.email || 'N/A'}</td></tr>
+                <tr><th className={tdClass}>8</th><td className={tdClass}>CONTACT DETAILS (LANDLINE/MOBILE)</td><td className={tdClass}>{generalData.phone || 'N/A'}</td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
         {/* CATEGORY B */}
-        <div className="mb-[50px]">
-          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-[10px] mb-[20px] font-serif font-bold">B: DOCUMENTS AND INFORMATION</h2>
+        <div className="mb-12.5">
+          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-2.5 mb-5 font-serif font-bold">B: DOCUMENTS AND INFORMATION</h2>
           <div className="overflow-x-auto">
             <table className={tableClass}>
               <thead>
@@ -139,10 +139,10 @@ export default function MandatoryDisclosure() {
         </div>
 
         {/* CATEGORY C */}
-        <div className="mb-[50px]">
-          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-[10px] mb-[20px] font-serif font-bold">C: RESULT AND ACADEMICS</h2>
+        <div className="mb-12.5">
+          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-2.5 mb-5 font-serif font-bold">C: RESULT AND ACADEMICS</h2>
           
-          <div className="overflow-x-auto mb-[30px]">
+          <div className="overflow-x-auto mb-7.5">
             <table className={tableClass}>
               <thead>
                 <tr>
@@ -161,8 +161,8 @@ export default function MandatoryDisclosure() {
             </table>
           </div>
 
-          <h3 id="board-results" className="text-xl font-serif text-primary font-bold mb-[10px]">RESULT CLASS: X</h3>
-          <div className="overflow-x-auto mb-[30px]">
+          <h3 id="board-results" className="text-xl font-serif text-primary font-bold mb-2.5">RESULT CLASS: X</h3>
+          <div className="overflow-x-auto mb-7.5">
             <table className={tableClass}>
               <thead>
                 <tr>
@@ -191,7 +191,7 @@ export default function MandatoryDisclosure() {
             </table>
           </div>
 
-          <h3 className="text-xl font-serif text-primary font-bold mb-[10px]">RESULT CLASS: XII</h3>
+          <h3 className="text-xl font-serif text-primary font-bold mb-2.5">RESULT CLASS: XII</h3>
           <div className="overflow-x-auto">
             <table className={tableClass}>
               <thead>
@@ -223,8 +223,8 @@ export default function MandatoryDisclosure() {
         </div>
 
         {/* CATEGORY D */}
-        <div className="mb-[50px]">
-          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-[10px] mb-[20px] font-serif font-bold">D: STAFF (TEACHING)</h2>
+        <div className="mb-12.5">
+          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-2.5 mb-5 font-serif font-bold">D: STAFF (TEACHING)</h2>
           <div className="overflow-x-auto">
             <table className={tableClass}>
               <thead>
@@ -266,8 +266,8 @@ export default function MandatoryDisclosure() {
         </div>
 
         {/* CATEGORY E */}
-        <div className="mb-[50px]">
-          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-[10px] mb-[20px] font-serif font-bold">E: SCHOOL INFRASTRUCTURE</h2>
+        <div className="mb-12.5">
+          <h2 className="text-[1.8rem] text-primary border-b-[3px] border-accent pb-2.5 mb-5 font-serif font-bold">E: SCHOOL INFRASTRUCTURE</h2>
           <div className="overflow-x-auto">
             <table className={tableClass}>
               <thead>

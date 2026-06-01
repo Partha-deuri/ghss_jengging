@@ -22,7 +22,7 @@ export default function Contact() {
   }, []);
 
   // Safe data extraction with fallbacks to your original text if the database is empty
-  const address = settings?.generalData?.address || "Government Higher Secondary School\nJengging, Siang District\nArunachal Pradesh, India - 791002";
+  const address = settings?.generalData?.address || "Government Higher Secondary School\nJengging, Upper Siang District\nArunachal Pradesh, India - 791002";
   const phone = settings?.generalData?.phone || "+91 [School Phone Number]";
   const email = settings?.generalData?.email || "principal.ghssjengging@example.com";
 

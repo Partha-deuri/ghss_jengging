@@ -17,7 +17,14 @@ export default function ProtectedRoute() {
 
       // 2. DEEP SERVER CHECK: Is the token valid and not expired?
       try {
-        await api.verifyToken();
+        
+        const res = await api.verifyToken();
+        if (res.valid === true){
+          setIsAuthorized(true);
+        }else{
+          localStorage.removeItem('adminToken');
+          setIsAuthorized(false);
+        }
       } catch (error) {
         localStorage.removeItem('adminToken');
         setIsAuthorized(false);

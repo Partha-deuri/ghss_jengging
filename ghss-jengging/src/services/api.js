@@ -216,14 +216,13 @@ export const api = {
     const token = localStorage.getItem('adminToken');
     
     const response = await fetch(`${BASE_URL}/auth/verify`, {
-      method: 'POST', // <-- Changed from GET to POST
+      method: 'POST', 
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     });
 
-    // If the backend sends 401/403, we force an error to trigger the kickout
     if (!response.ok) {
       throw new Error("Invalid token signature"); 
     }

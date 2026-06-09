@@ -185,7 +185,7 @@ export default function Home() {
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {[
-              { num: '1980', label: 'Year Established' },
+              { num: '1986', label: 'Year Established' },
               { num: '8+', label: 'Dedicated Educators' },
               { num: '100%', label: 'Commitment to Excellence' },
               { num: 'Class 12', label: 'Highest Academic Level' }

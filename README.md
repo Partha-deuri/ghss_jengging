@@ -1,6 +1,6 @@
 GHSS Jengging - Official Website & Admin Portal 
 
-[visit](ghssjengging.com)
+[View live page](https://ghssjengging.com)
 
 🏫 Overview
 

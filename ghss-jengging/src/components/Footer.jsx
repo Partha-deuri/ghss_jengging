@@ -7,7 +7,7 @@ export default function Footer() {
         <div>
           <h3 className="text-accent text-xl font-bold mb-4">Contact Us</h3>
           <p>Govt Higher Secondary School Jengging,</p>
-          <p>Jengging, Siang District,</p>
+          <p>Jengging, Upper Siang District,</p>
           <p>Arunachal Pradesh - 791002, India</p>
         </div>
         <div>
@@ -18,8 +18,22 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="text-center border-t border-white/10 mt-10 pt-5 text-sm opacity-80">
-        &copy; 2026 GHSS Jengging. All Rights Reserved.
+      
+      {/* Updated Bottom Bar */}
+      <div className="text-center border-t border-white/10 mt-10 pt-5 text-sm opacity-80 flex flex-col md:flex-row justify-center items-center gap-2">
+        <span>&copy; 2026 GHSS Jengging. All Rights Reserved.</span>
+        <span className="hidden md:inline text-white/50">|</span>
+        <span>
+          Developed by{' '}
+          <a 
+            href="https://pdeuri.online" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-accent hover:text-white font-medium transition-colors"
+          >
+            Parthapratim Deuri
+          </a>
+        </span>
       </div>
     </footer>
   );

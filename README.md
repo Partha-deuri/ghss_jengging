@@ -74,7 +74,7 @@ npm run dev
 ```
 
 ## 🌐 Deployment Notes
-* **Environment Variables:** When deploying the backend to Render, ensure all variables from the local `.env` file are added to the Render Environment settings.
+* **Environment Variables:** When deploying the backend, ensure all variables from the local `.env` file are added to the Environment settings.
 * **CORS:** If adding new subdomains in the future, update the `corsOptions` array in `server.js`.
 * **Cloudinary PDFs:** By default, Cloudinary blocks PDF delivery. Ensure "Allow delivery of PDF and ZIP files" is checked in the Cloudinary Security Settings.
 

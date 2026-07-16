@@ -1,6 +1,6 @@
 # GHSS Jengging - Official Website & Admin Portal
 
-[View live page](https://ghssjengging.com)
+[View live page](https://ghssjengging.com) [Alternate link](https://school-website2-0l1u.onrender.com)
 
 ---
 
